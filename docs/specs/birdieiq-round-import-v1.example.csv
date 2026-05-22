@@ -1,0 +1,4 @@
+round_id,played_at,course_name,tee_name,round_type,hole_number,par,score,putts,fairway_hit,gir,penalty_strokes,notes
+example-001,2026-05-15,Pebble Beach Golf Links,Blue,18,1,4,5,2,N,Y,0,
+example-001,2026-05-15,Pebble Beach Golf Links,Blue,18,2,5,6,2,Y,N,1,Penalty off tee
+example-001,2026-05-15,Pebble Beach Golf Links,Blue,18,3,4,4,1,Y,Y,0,

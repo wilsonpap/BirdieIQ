@@ -139,13 +139,13 @@ Copy this block into `docs/journal/CP-XX.md` (create per checkpoint).
 
 ## Exit criteria
 
-- [ ] Feasibility report complete with gap table + recommendation
-- [ ] At least one portability or scorecard sample documented (or explicit blocker)
-- [ ] MVP ingestion path **approved** in `docs/DECISIONS.md` entry `ADR-001-data-ingestion`
+- [x] Feasibility report complete with gap table + recommendation
+- [x] Portability or scorecard: **pending user tests** documented ([CP-01 journal](./journal/CP-01.md)) — does not block MVP
+- [x] MVP ingestion path **approved** — [ADR-001](./DECISIONS.md) accepted 2026-05-22
 
 ## Journal file
 
-`docs/journal/CP-01.md`
+[CP-01.md](./journal/CP-01.md) — **completed** 2026-05-22
 
 ---
 
