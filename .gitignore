@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+vendor/
+.pnp
+.pnp.js
+
+# Build / dist
+dist/
+build/
+out/
+*.egg-info/
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+*.pem
+credentials.json
+secrets/
+
+# IDE & OS
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs & coverage
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+.nyc_output/
+htmlcov/
+.pytest_cache/
+.coverage
+
+# Misc
+*.local
+.cache/
+tmp/
+temp/
