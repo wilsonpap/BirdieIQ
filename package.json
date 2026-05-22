@@ -1,0 +1,14 @@
+{
+  "name": "birdieiq-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "services/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "pnpm --filter ./apps/web dev",
+    "dev:analytics": "pnpm --filter ./services/analytics start",
+    "dev": "concurrently \"pnpm dev:web\" \"pnpm dev:analytics\""
+  }
+}
