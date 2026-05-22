@@ -80,8 +80,21 @@ Record one entry per major decision. Link to specs and journal checkpoints.
 
 ## ADR-005 — Strokes gained MVP method
 
-**Status:** Proposed  
-**Decision:** Par-based bucket proxy until benchmark data available.
+**Status:** Accepted  
+**Date:** 2026-05-22  
+**Checkpoint:** CP-4  
+**Context:** MVP has hole-level score/putts/GIR/FIR but no shot GPS. Full strokes-gained requires benchmark expected strokes.
+
+**Decision:**
+
+1. **Per hole:** `sg_total = par - score`; `sg_putt = 2 - putts` (two-putt baseline).
+2. **Remainder** (`sg_non_putt`) allocated to OTT / APP / ARG using par, GIR, and fairway_hit heuristics (see spec §4.8).
+3. **UI** labels metrics as BirdieIQ proxy, not 18Birdies or PGA Tour SG.
+4. **Post-MVP:** Replace with shot-based or benchmark tables when data exists.
+
+**Consequences:** CP-5 rules may reference `sg_*` keys at lower priority; CP-9 tests must use documented allocation percentages.
+
+**Spec:** [04-metrics-engine.md](./specs/04-metrics-engine.md) §4.8
 
 ---
 

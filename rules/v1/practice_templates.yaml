@@ -1,0 +1,225 @@
+# BirdieIQ — Practice plan templates (CP-5)
+# Referenced by rules/v1/rules.yaml via practice_template_id
+
+version: "1"
+
+templates:
+  - id: short_putt_gate
+    title: Short Putt Gate Drill
+    duration_minutes: 30
+    items:
+      - title: Gate setup
+        description: Place two tees as a gate 6 inches wider than your putter head, 4 feet from the hole.
+      - title: Block practice
+        description: Make 10 in a row from 4 feet before moving to 5 feet.
+      - title: Pressure finish
+        description: 5 reps of 4-4-5-5-6 feet; restart if you miss inside 4 feet.
+
+  - id: lag_putting_ladder
+    title: Lag Putting Ladder
+    duration_minutes: 30
+    items:
+      - title: Ladder 20-40-60 ft
+        description: Three balls each distance; goal inside 3-foot circle.
+      - title: Downhill focus
+        description: Extra set on downhill lie if available on practice green.
+      - title: Two-putt goal
+        description: Track 3-putt count; target zero in 18 reps.
+
+  - id: wedge_gir_challenge
+    title: Wedge GIR Challenge
+    duration_minutes: 45
+    items:
+      - title: Distance zones
+        description: Hit 5 shots each from 60, 75, 90, and 100 yards to a green.
+      - title: GIR scoring
+        description: Ball must finish on green; track 8/20 minimum.
+      - title: Lie variety
+        description: Add one tight lie and one flyer lie set.
+
+  - id: fairway_finder
+    title: Fairway Finder
+    duration_minutes: 40
+    items:
+      - title: Fairway width aim
+        description: Pick 20-yard wide target on range; driver only.
+      - title: Stock swing
+        description: 10 drivers at 80% effort focusing on center contact.
+      - title: Course simulation
+        description: Visualize three toughest driving holes from recent rounds.
+
+  - id: course_management
+    title: Course Management Session
+    duration_minutes: 60
+    items:
+      - title: Card review
+        description: List last 5 penalty strokes and what decision caused them.
+      - title: Lay-up plan
+        description: Write club-off-tee plan for two holes where you took penalty.
+      - title: Nine-hole mindful round
+        description: Play or simulate nine holes with conservative targets only.
+
+  - id: layup_strategy
+    title: Lay-Up Strategy
+    duration_minutes: 45
+    items:
+      - title: Par 5 audit
+        description: Review last 5 par 5s; mark where +1 became +2 or worse.
+      - title: Lay-up landing zone
+        description: Define 80-120 yard landing zone for your common par 5s.
+      - title: Wedge to green
+        description: 10 reps from lay-up distance to GIR.
+
+  - id: damage_control
+    title: Damage Control Routine
+    duration_minutes: 30
+    items:
+      - title: Double avoidance
+        description: From trouble lies, practice punch-out to 150 yards max.
+      - title: Bogey plan
+        description: When in trouble, define “bogey is OK” exit strategy before next shot.
+      - title: Mental cue
+        description: One breath + club selection routine before recovery shots.
+
+  - id: putting_clock
+    title: Putting Clock Drill
+    duration_minutes: 35
+    items:
+      - title: Clock positions
+        description: 12 balls around the hole at 3-6 feet like a clock.
+      - title: Rotation
+        description: Make all 12; if you miss, restart that position.
+      - title: Speed variation
+        description: Finish with 6 lag putts emphasizing first-putt distance.
+
+  - id: wedge_distance_matrix
+    title: Wedge Distance Matrix
+    duration_minutes: 50
+    items:
+      - title: Stock wedges
+        description: Record carry distance for PW, GW, SW with stock swing.
+      - title: 3/4 and 1/2 swings
+        description: Add half-swing entries to matrix card.
+      - title: 100-yard test
+        description: 10 balls from 90-110; track proximity to pin.
+
+  - id: mental_reset_tee
+    title: Mental Reset + Tee Strategy
+    duration_minutes: 25
+    items:
+      - title: Blow-up review
+        description: Identify last 3 blow-up holes; note first bad decision.
+      - title: Tee strategy
+        description: Write safer tee club for those hole types.
+      - title: Reset routine
+        description: Practice 10-second pre-shot routine on range.
+
+  - id: stamina_pace
+    title: Stamina & Pace Plan
+    duration_minutes: 0
+    items:
+      - title: Hydration
+        description: Drink every 3 holes; electrolyte on holes 10-12.
+      - title: Pace
+        description: Target sub-4:30 hours; walk with purpose between shots.
+      - title: Back nine fuel
+        description: Light snack at turn; avoid sugar crash on 13-15.
+
+  - id: par3_tee_selection
+    title: Par 3 Tee Selection
+    duration_minutes: 30
+    items:
+      - title: Par 3 stats
+        description: Compare par 3 scoring vs par 4/5 from dashboard.
+      - title: Club down
+        description: Hit 7-10 par-3 tee shots with one club more than usual.
+      - title: Center green
+        description: Aim middle tier; ignore pin on holes over 175 yards.
+
+  - id: bunker_entry
+    title: Bunker Entry Drill
+    duration_minutes: 35
+    items:
+      - title: Entry point
+        description: Draw consistent entry line 2 inches behind ball.
+      - title: Splash count
+        description: 15 greenside bunkers to 3-foot circle.
+      - title: Lie labels
+        description: Practice fried-egg and downhill lies separately.
+
+  - id: chip_to_3ft
+    title: Chipping to 3 Feet
+    duration_minutes: 40
+    items:
+      - title: Landing spot
+        description: Pick landing spot on fringe; 10 chips with one wedge.
+      - title: Lie change
+        description: Rough, fairway, tight lie — 5 each.
+      - title: Up-and-down game
+        description: 9 holes chipping game vs par 2.
+
+  - id: consistency_routine
+    title: Consistency Routine
+    duration_minutes: 30
+    items:
+      - title: Pre-shot checklist
+        description: Same 3 steps every full swing on range.
+      - title: Tempo
+        description: 20 balls with metronome or count “1-2”.
+      - title: Scoring goal
+        description: Next round goal — no double+ on back nine.
+
+  - id: full_bag_audit
+    title: Full Bag Audit
+    duration_minutes: 90
+    items:
+      - title: 14-club matrix
+        description: List carry distance for every club; note gaps over 12 yards.
+      - title: Miss pattern
+        description: Track miss direction for driver and 7-iron (10 each).
+      - title: Round plan
+        description: One page course strategy for next outing.
+
+  - id: gapping_session
+    title: Gapping Session
+    duration_minutes: 60
+    items:
+      - title: Approach SG review
+        description: Check approach strokes-gained proxy in app.
+      - title: Iron ladder
+        description: 5 shots each iron; update distance chart.
+      - title: Stock vs knockdown
+        description: Add knockdown entry for wind days.
+
+  - id: shot_tracking_prompt
+    title: Enable Shot Tracking
+    duration_minutes: 5
+    items:
+      - title: Why track
+        description: Shot data unlocks better strokes-gained and club recommendations.
+      - title: Next round
+        description: Log club and result for every shot on one practice nine.
+      - title: Import option
+        description: Re-import CSV with shot columns when available.
+
+  - id: import_onboarding
+    title: Build Your History
+    duration_minutes: 15
+    items:
+      - title: CSV import
+        description: Download BirdieIQ template; import last 10 rounds.
+      - title: Manual backup
+        description: Enter most recent round hole-by-hole if no CSV.
+      - title: Goal
+        description: Reach 5 rounds for full insights and handicap proxy.
+
+  - id: maintenance_rotation
+    title: Maintenance Rotation
+    duration_minutes: 45
+    items:
+      - title: Strength
+        description: Pick best metric from dashboard; one drill to maintain it.
+      - title: Weakness rotation
+        description: Choose one secondary skill (putting, wedge, driver).
+      - title: Weekly plan
+        description: Schedule two 45-min practice sessions before next round.

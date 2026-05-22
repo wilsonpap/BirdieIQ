@@ -36,10 +36,10 @@ Resume BirdieIQ — read PROJECT_STATUS.md
 That loads the current checkpoint, ADRs, and open items. To continue the next task:
 
 ```text
-start CP-4
+start CP-6
 ```
 
-**Current progress:** CP-0–3 complete → **next: CP-4** (metrics engine spec). No application code until CP-5. Details: [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
+**Current progress:** CP-0–5 complete (design gate) → **next: CP-6** (monorepo scaffold). Details: [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
 ## License
 

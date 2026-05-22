@@ -5,8 +5,8 @@
 | 01 | [Data access feasibility](./01-data-access-feasibility.md) | CP-1 | **Complete** |
 | 02 | [Architecture](./02-architecture.md) | CP-2 | **Complete** |
 | 03 | [Data model](./03-data-model.md) | CP-3 | **Complete** |
-| 04 | [Metrics engine](./04-metrics-engine.md) | CP-4 | Not started |
-| 05 | [Recommendation engine](./05-recommendation-engine.md) | CP-5 | Not started |
+| 04 | [Metrics engine](./04-metrics-engine.md) | CP-4 | **Complete** |
+| 05 | [Recommendation engine](./05-recommendation-engine.md) | CP-5 | **Complete** |
 
 **Handoff:** [../PROJECT_STATUS.md](../PROJECT_STATUS.md)  
 **PRD:** [../PRD.md](../PRD.md)  
@@ -15,4 +15,5 @@
 **Import template:** [birdieiq-round-import-v1.example.csv](./birdieiq-round-import-v1.example.csv)  
 **Diagrams:** [architecture.mmd](../diagrams/architecture.mmd), [erd.mmd](../diagrams/erd.mmd)  
 **Migrations:** [../../db/migrations/001_initial.sql](../../db/migrations/001_initial.sql)  
-**Journals:** [../journal/](../journal/) — [CP-00](../journal/CP-00.md) … [CP-03](../journal/CP-03.md) complete
+**Rules:** [../../rules/v1/rules.yaml](../../rules/v1/rules.yaml), [practice_templates.yaml](../../rules/v1/practice_templates.yaml)  
+**Journals:** [../journal/](../journal/) — [CP-00](../journal/CP-00.md) … [CP-05](../journal/CP-05.md) complete

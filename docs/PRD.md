@@ -14,11 +14,8 @@ This PRD is the **product source of truth**. Engineering execution is tracked se
 
 | PRD area | Status | Where decided |
 |----------|--------|----------------|
-| Phase 1 objectives 1–2 | ✅ CP-1, CP-2 complete | Specs 01, 02 |
-| Data model (obj 3) | ⏭ CP-3 next | Spec 03 |
-| Metrics engine (obj 4) | ⬜ CP-4 | Spec 04 |
-| Recommendation engine (obj 5) | ⬜ CP-5 | Spec 05 |
-| 8-week build (obj 6) | ⬜ CP-7–12 | Workplan |
+| Phase 1 design (objectives 1–5) | ✅ CP-1–CP-5 complete | Specs 01–05, [rules/](../rules/v1/) |
+| 8-week build (objective 6) | ⏭ CP-6 scaffold → CP-7–12 | Workplan |
 | Clerk / Stripe auth & billing | **Deferred post-MVP** | [ADR-007](./DECISIONS.md) |
 | 18Birdies live API | **Not available** — CSV + manual MVP | [ADR-001](./DECISIONS.md) |
 

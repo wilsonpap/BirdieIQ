@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-05-22  
 **Repo:** https://github.com/wilsonpap/BirdieIQ  
-**Phase:** Phase 1 design — pre-code scaffold
+**Phase:** Phase 1 — design complete; CP-6 scaffold next
 
 > **Start here** after clearing context. Read this file, then [PHASE1_WORKPLAN.md](./PHASE1_WORKPLAN.md) for the active checkpoint.
 
@@ -10,7 +10,7 @@
 
 ## Current state (one paragraph)
 
-BirdieIQ is a golf analytics MVP (AI coach from round data). **Design checkpoints CP-0 through CP-3 are complete.** CP-4 (metrics engine spec) is **next**. There is **no application code yet** — docs, ADRs, journals, ERD, SQL migration draft, and CSV import example. **18Birdies has no API** — MVP uses CSV import + manual entry. **Clerk and Stripe are deferred** until after core MVP ([ADR-007](./DECISIONS.md)).
+BirdieIQ is a golf analytics MVP (AI coach from round data). **Design checkpoints CP-0 through CP-5 are complete.** CP-6 (monorepo scaffold) is **next**. There is **no application code yet** — docs, ADRs, journals, ERD, SQL migration, metrics + rules specs, YAML rule library, and CSV import example. **18Birdies has no API** — MVP uses CSV import + manual entry. **Clerk and Stripe are deferred** until after core MVP ([ADR-007](./DECISIONS.md)).
 
 ---
 
@@ -22,9 +22,9 @@ BirdieIQ is a golf analytics MVP (AI coach from round data). **Design checkpoint
 | CP-1 | Data access feasibility | ✅ Complete | [CP-01](journal/CP-01.md) |
 | CP-2 | MVP architecture | ✅ Complete | [CP-02](journal/CP-02.md) |
 | CP-3 | Data model (ERD + SQL) | ✅ Complete | [CP-03](journal/CP-03.md) |
-| **CP-4** | **Metrics engine spec** | **⏭ Next** | — |
-| CP-5 | Rules engine spec (20 rules) | ⬜ Not started | — |
-| CP-6 | Monorepo scaffold | ⬜ Blocked until CP-3–5 | — |
+| CP-4 | Metrics engine spec | ✅ Complete | [CP-04](journal/CP-04.md) |
+| CP-5 | Rules engine spec (20 rules) | ✅ Complete | [CP-05](journal/CP-05.md) |
+| **CP-6** | **Monorepo scaffold** | **⏭ Next** | — |
 | CP-7–12 | 8-week build | ⬜ Not started | — |
 
 **Spec index:** [specs/00-INDEX.md](specs/00-INDEX.md)
@@ -41,7 +41,7 @@ BirdieIQ is a golf analytics MVP (AI coach from round data). **Design checkpoint
 | [ADR-006](DECISIONS.md#adr-006--bff-pattern) | Next.js BFF only; FastAPI internal |
 | [ADR-007](DECISIONS.md#adr-007--defer-auth-and-billing-post-mvp) | **No Clerk/Stripe in MVP** — `BIRDIEIQ_DEFAULT_USER_ID` seed |
 
-**Open:** ADR-004 (Drizzle vs Prisma) — decide at CP-6. ADR-005 (strokes gained proxy) — confirm at CP-4.
+**Open:** ADR-004 (Drizzle vs Prisma) — decide at CP-6.
 
 ---
 
@@ -85,10 +85,10 @@ From [CP-01 journal](journal/CP-01.md) — **not blocking CP-3**:
 ## How to resume development
 
 1. Read this file.
-2. Say or run: **“start CP-4”** (metrics engine spec).
-3. Deliverables: `docs/specs/04-metrics-engine.md`, fixtures, OpenAPI stub.
-4. Journal: copy `docs/journal/_TEMPLATE.md` → `docs/journal/CP-04.md`.
-5. Do **not** scaffold app code until CP-4, CP-5 exit criteria pass ([CONVENTIONS.md](CONVENTIONS.md)).
+2. Say or run: **“start CP-6”** (monorepo scaffold).
+3. Deliverables: `apps/web`, `services/analytics`, `docker-compose.yml`, CI, `.env.example`.
+4. Journal: `docs/journal/CP-06.md`.
+5. **Design gate passed** — CP-1–CP-5 complete per [CONVENTIONS.md](CONVENTIONS.md).
 
 ---
 
