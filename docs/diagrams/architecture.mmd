@@ -1,0 +1,78 @@
+%% BirdieIQ — Architecture diagrams (CP-2, amended: no auth/billing in MVP)
+%% Dotted lines = post-MVP (Clerk, Stripe)
+
+%% --- C4 Level 1: System Context ---
+flowchart TB
+  subgraph context["C4 Level 1 — System Context"]
+    Golfer["Golfer\n(person)"]
+    BirdieIQ["BirdieIQ MVP"]
+    NeonExt["Neon\n(PostgreSQL)"]
+    RailwayExt["Railway\n(analytics API)"]
+    VercelExt["Vercel\n(web host)"]
+    ClerkExt["Clerk\n(post-MVP)"]
+    StripeExt["Stripe\n(post-MVP)"]
+
+    Golfer -->|"Uses browser"| BirdieIQ
+    BirdieIQ -->|"Persists rounds, metrics"| NeonExt
+    BirdieIQ -->|"Serves Next.js"| VercelExt
+    BirdieIQ -->|"Stats + rules engine"| RailwayExt
+    BirdieIQ -.->|"ADR-007"| ClerkExt
+    BirdieIQ -.->|"ADR-007"| StripeExt
+  end
+
+%% --- C4 Level 2: Containers (MVP) ---
+flowchart TB
+  subgraph containers["C4 Level 2 — Containers (MVP)"]
+    Browser["Browser\n(React client)"]
+
+    subgraph vercel["Vercel"]
+      NextApp["Next.js 14 App"]
+      BFF["Route Handlers\n(BFF — default user)"]
+    end
+
+    subgraph railway["Railway"]
+      Analytics["FastAPI Analytics"]
+      Worker["Background worker"]
+    end
+
+    DB[("PostgreSQL\nNeon")]
+    SeedUser["Seeded user\nBIRDIEIQ_DEFAULT_USER_ID"]
+
+    Browser --> NextApp
+    NextApp --> BFF
+    BFF --> SeedUser
+    BFF --> DB
+    BFF --> Analytics
+    Analytics --> Worker
+    Analytics --> DB
+    Worker --> DB
+  end
+
+%% --- Request flow: Import round → insights (no Clerk) ---
+sequenceDiagram
+  autonumber
+  actor U as Golfer
+  participant W as Next.js UI
+  participant B as BFF
+  participant D as PostgreSQL
+  participant A as FastAPI Analytics
+
+  U->>W: Open dashboard
+  Note over B: getCurrentUserId() from env seed
+
+  U->>W: Upload CSV / save round
+  W->>B: POST /api/rounds/import
+  B->>D: Insert rounds, holes, metrics_job
+  B->>A: POST /internal/jobs/metrics
+  B-->>W: 202 + jobId
+
+  A->>D: Compute metrics, insights, plans
+  A->>D: job complete
+
+  W->>B: GET /api/jobs/{jobId}
+  B-->>W: complete
+
+  U->>W: View insights + practice plan
+  W->>B: GET /api/metrics/summary
+  B->>D: Read snapshots
+  B-->>W: JSON

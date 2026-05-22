@@ -21,6 +21,10 @@
 
 Spikes must include: hypothesis, time limit, and whether the spike code will be thrown away.
 
+## MVP scope (ADR-007)
+
+**No Clerk or Stripe in the MVP build** (CP-6–CP-12). Use seeded `BIRDIEIQ_DEFAULT_USER_ID`. Auth and billing are post-MVP (CP-14 P7/P8). Do not deploy MVP to the public internet without auth.
+
 ## Git
 
 - **Branch:** `main` for integration; feature branches `cp-N-short-description` optional for large checkpoints.

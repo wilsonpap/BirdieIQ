@@ -16,7 +16,8 @@
 | **Frontend** | Next.js 14 (App Router) + React + Tailwind + shadcn/ui |
 | **API layer** | Next.js Route Handlers (BFF) + **FastAPI** Python service for analytics |
 | **Database** | PostgreSQL (Neon serverless) |
-| **Auth** | Clerk |
+| **Auth** | **Deferred post-MVP** (Clerk) — MVP uses seeded single user ([ADR-007](./DECISIONS.md)) |
+| **Billing** | **Deferred post-MVP** (Stripe) |
 | **Hosting** | Vercel (web) + Railway or Render (Python API) — low cost, scale later |
 | **Analytics v1** | Rules-based recommendations in Python; **no ML** in MVP |
 | **Business model** | Subscription SaaS; responsive web first |
@@ -170,8 +171,8 @@ Copy this block into `docs/journal/CP-XX.md` (create per checkpoint).
 
 | Field | Content |
 |-------|---------|
-| **Recommendation** | **Next.js 14** (App Router) + **Route Handlers** as BFF; **FastAPI** Python service (`services/analytics`); **PostgreSQL** on **Neon**; **Clerk** auth; **Stripe** billing; **Vercel** + **Railway** (Python) |
-| **Why** | Next.js matches PRD; Python best for stats/rules; Neon/Vercel free tiers; Clerk fastest auth for SaaS |
+| **Recommendation** | **Next.js 14** (App Router) + **Route Handlers** as BFF; **FastAPI** Python service (`services/analytics`); **PostgreSQL** on **Neon**; **Vercel** + **Railway**; auth/billing **post-MVP** ([ADR-007](./DECISIONS.md)) |
+| **Why** | Next.js matches PRD; Python best for stats/rules; ship analytics engine before SaaS plumbing |
 | **Alternatives** | All-Python Django (slower frontend iteration); Supabase-only (couples auth+DB); Node-only analytics (weaker stats ecosystem) |
 | **Risks** | Two runtimes to deploy; mitigate with Docker Compose locally + shared OpenAPI client |
 | **Next action** | CP-6 scaffold monorepo to match |
@@ -199,13 +200,13 @@ flowchart TB
 
 ## Exit criteria
 
-- [ ] Architecture doc approved
-- [ ] ADR-002 (async metrics) and ADR-003 (hosting) in `docs/DECISIONS.md`
-- [ ] Diagram committed under `docs/diagrams/`
+- [x] Architecture doc approved — [02-architecture.md](./specs/02-architecture.md)
+- [x] ADR-002, ADR-003, ADR-006 accepted in [DECISIONS.md](./DECISIONS.md)
+- [x] Diagram committed — [architecture.mmd](./diagrams/architecture.mmd)
 
 ## Journal file
 
-`docs/journal/CP-02.md`
+[CP-02.md](./journal/CP-02.md) — **completed** 2026-05-22
 
 ---
 
@@ -403,7 +404,7 @@ BirdieIQ/
 | 6.3 | Scaffold FastAPI + uv/poetry | `services/analytics` runs |
 | 6.4 | Docker Compose: Postgres local + optional analytics | `docker-compose.yml` |
 | 6.5 | Apply `001_initial.sql` via migration tool (Drizzle or Prisma — pick one in journal) | DB tables |
-| 6.6 | Clerk dev instance + env templates `.env.example` | Auth works locally |
+| 6.6 | `.env.example` with `BIRDIEIQ_DEFAULT_USER_ID` + seed user migration | Default user works locally |
 | 6.7 | GitHub Actions: lint + test on PR | CI green |
 | 6.8 | Deploy preview: Vercel + Railway hello-world | URLs in journal |
 
@@ -424,11 +425,11 @@ BirdieIQ/
 
 Work **one week per checkpoint** (CP-7 = weeks 1–2, etc.). Each week ends with demo + journal + git tag `v0.X-weekN`.
 
-## Week 1–2 — CP-7: Foundation (Auth, users, import)
+## Week 1–2 — CP-7: Foundation (import + dashboard)
 
 | Milestone | Tasks |
 |-----------|-------|
-| M1.1 | Clerk sign-up/in, protected routes, `users` sync webhook |
+| M1.1 | Seed `users` row + `getCurrentUserId()` helper (ADR-007) |
 | M1.2 | Dashboard shell (mobile-responsive nav) |
 | M1.3 | CSV import UI + validation + `import_batches` |
 | M1.4 | Manual round wizard (18 holes, score/putts/FIR/GIR) |
@@ -436,11 +437,11 @@ Work **one week per checkpoint** (CP-7 = weeks 1–2, etc.). Each week ends with
 
 **Risks:** Import edge cases — time-box validation rules  
 **Dependency:** CP-3 schema, CP-1 CSV format  
-**Demo:** User signs in, imports CSV, sees round list
+**Demo:** Open app → import CSV → see round list (no login)
 
 ### Exit criteria
 
-- [ ] E2E: sign in → import → view round
+- [ ] E2E: open dashboard → import → view round
 - [ ] Tag: `v0.1-foundation`
 
 ---
@@ -520,22 +521,22 @@ Work **one week per checkpoint** (CP-7 = weeks 1–2, etc.). Each week ends with
 
 ---
 
-## Week 8 — CP-12: SaaS launch prep
+## Week 8 — CP-12: MVP polish & deploy
 
 | Milestone | Tasks |
 |-----------|-------|
-| M6.1 | Stripe subscription (monthly tier) |
-| M6.2 | Free tier limits (e.g. 5 rounds) + paywall |
-| M6.3 | Landing page + positioning (honest 18Birdies messaging) |
-| M6.4 | Privacy policy + terms stub |
-| M6.5 | Sentry/logging + basic observability |
-| M6.6 | Production deploy + smoke tests |
+| M6.1 | Landing page + positioning (honest 18Birdies messaging) |
+| M6.2 | Empty states, mobile polish, error boundaries |
+| M6.3 | Sentry/logging + basic observability |
+| M6.4 | Deploy to Vercel + Railway + Neon (staging) |
+| M6.5 | Smoke test: import → metrics → insights → practice plan |
+| ~~M6.x~~ | ~~Stripe / paywall~~ — **deferred** ([ADR-007](./DECISIONS.md)) |
 
-**Demo:** Paying user flow on production URL
+**Demo:** Full coaching flow on staging URL (single-user MVP)
 
 ### Exit criteria
 
-- [ ] Stripe test → prod checkout works
+- [ ] E2E coaching flow on staging
 - [ ] Tag: `v0.6-mvp`
 
 ---
@@ -552,7 +553,7 @@ Work **one week per checkpoint** (CP-7 = weeks 1–2, etc.). Each week ends with
 
 ## Exit criteria
 
-- [ ] MVP live with ≥3 paying or committed beta users
+- [ ] MVP live on staging with ≥3 testers (auth not required for MVP)
 - [ ] Known limitations doc published
 
 ---
@@ -569,6 +570,8 @@ Only after CP-13:
 | P4 | Browser-assisted import (evaluate legal) |
 | P5 | Additional data sources (Garmin, Arccos, etc.) |
 | P6 | LLM narrative layer on top of rules (not replacing) |
+| P7 | **Clerk auth** — sign-up, protected routes, user sync ([ADR-007](./DECISIONS.md)) |
+| P8 | **Stripe billing** — subscriptions, paywall, free tier limits |
 
 ---
 
@@ -591,7 +594,7 @@ Only after CP-13:
 - Low infrastructure cost (<$50/mo until traction)  
 - Mobile-responsive web only  
 - Rules-based coaching only  
-- Subscription SaaS from week 8  
+- Subscription SaaS **after** core MVP (auth + billing post CP-12)  
 - Scalability via clean schema + async jobs, not premature microservices  
 
 ---

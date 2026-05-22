@@ -8,8 +8,9 @@ AI golf coach MVP — analyze rounds, find scoring leaks, and generate practice 
 - **[Conventions](docs/CONVENTIONS.md)** — checkpoint order, build gate, git notes
 - **[Decision log](docs/DECISIONS.md)** — ADRs
 - **[Spec index](docs/specs/00-INDEX.md)** — deliverables per checkpoint
-- **[Journals](docs/journal/)** — [CP-00](docs/journal/CP-00.md), [CP-01](docs/journal/CP-01.md) complete
+- **[Journals](docs/journal/)** — [CP-00](docs/journal/CP-00.md), [CP-01](docs/journal/CP-01.md), [CP-02](docs/journal/CP-02.md) complete
 - **[Data access report](docs/specs/01-data-access-feasibility.md)** — CP-1 feasibility (18Birdies + fallbacks)
+- **[Architecture spec](docs/specs/02-architecture.md)** — CP-2 (Vercel + FastAPI + Neon)
 - **[Journal template](docs/journal/_TEMPLATE.md)** — copy for each new checkpoint
 
 ## Getting started

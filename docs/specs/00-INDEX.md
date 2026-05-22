@@ -3,7 +3,7 @@
 | # | Document | Checkpoint | Status |
 |---|----------|------------|--------|
 | 01 | [Data access feasibility](./01-data-access-feasibility.md) | CP-1 | **Complete** |
-| 02 | [Architecture](./02-architecture.md) | CP-2 | Not started |
+| 02 | [Architecture](./02-architecture.md) | CP-2 | **Complete** |
 | 03 | [Data model](./03-data-model.md) | CP-3 | Not started |
 | 04 | [Metrics engine](./04-metrics-engine.md) | CP-4 | Not started |
 | 05 | [Recommendation engine](./05-recommendation-engine.md) | CP-5 | Not started |
@@ -11,4 +11,5 @@
 **Workplan:** [../PHASE1_WORKPLAN.md](../PHASE1_WORKPLAN.md)  
 **Conventions:** [../CONVENTIONS.md](../CONVENTIONS.md)  
 **Import template:** [birdieiq-round-import-v1.example.csv](./birdieiq-round-import-v1.example.csv)  
-**Journals:** [../journal/](../journal/) — [CP-00](../journal/CP-00.md), [CP-01](../journal/CP-01.md) complete
+**Diagrams:** [architecture.mmd](../diagrams/architecture.mmd)  
+**Journals:** [../journal/](../journal/) — [CP-00](../journal/CP-00.md), [CP-01](../journal/CP-01.md), [CP-02](../journal/CP-02.md) complete
