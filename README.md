@@ -4,6 +4,9 @@ AI golf coach MVP — analyze rounds, find scoring leaks, and generate practice 
 
 ## Documentation
 
+- **[Project status](docs/PROJECT_STATUS.md)** — **start here** after a break (current checkpoint, ADRs, open items)
+- **[PRD](docs/PRD.md)** — product vision and Phase 1 objectives
+- **[Agent instructions](AGENTS.md)** — for Cursor / AI handoff
 - **[Phase 1 Workplan](docs/PHASE1_WORKPLAN.md)** — checkpoints, procedures, 8-week build plan
 - **[Conventions](docs/CONVENTIONS.md)** — checkpoint order, build gate, git notes
 - **[Decision log](docs/DECISIONS.md)** — ADRs
@@ -15,7 +18,7 @@ AI golf coach MVP — analyze rounds, find scoring leaks, and generate practice 
 
 ## Getting started
 
-Phase 1 starts with **CP-0** and **CP-1** (data access feasibility) before application code. See the workplan.
+**Current:** CP-0–2 complete → **next: CP-3** (data model). No app code until CP-5. See [project status](docs/PROJECT_STATUS.md).
 
 ## Development
 

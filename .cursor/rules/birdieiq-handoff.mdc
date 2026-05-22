@@ -1,0 +1,18 @@
+---
+description: Read project status and ADRs before any BirdieIQ work
+alwaysApply: true
+---
+
+# BirdieIQ session start
+
+Before planning or coding:
+
+1. Read [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md) — current checkpoint, progress, open items.
+2. Read [docs/DECISIONS.md](docs/DECISIONS.md) — do not contradict accepted ADRs without a new ADR entry.
+3. For checkpoint work, follow [docs/PHASE1_WORKPLAN.md](docs/PHASE1_WORKPLAN.md) and log in `docs/journal/CP-XX.md`.
+
+**Product vision:** [docs/PRD.md](docs/PRD.md)
+
+**MVP constraints:** No Clerk/Stripe until post-MVP (ADR-007). No app scaffold until CP-3–5 specs complete. No 18Birdies API/scraping (ADR-001).
+
+**Resume:** User may say `start CP-N` — execute that checkpoint only.

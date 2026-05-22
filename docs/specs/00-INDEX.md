@@ -8,6 +8,8 @@
 | 04 | [Metrics engine](./04-metrics-engine.md) | CP-4 | Not started |
 | 05 | [Recommendation engine](./05-recommendation-engine.md) | CP-5 | Not started |
 
+**Handoff:** [../PROJECT_STATUS.md](../PROJECT_STATUS.md)  
+**PRD:** [../PRD.md](../PRD.md)  
 **Workplan:** [../PHASE1_WORKPLAN.md](../PHASE1_WORKPLAN.md)  
 **Conventions:** [../CONVENTIONS.md](../CONVENTIONS.md)  
 **Import template:** [birdieiq-round-import-v1.example.csv](./birdieiq-round-import-v1.example.csv)  

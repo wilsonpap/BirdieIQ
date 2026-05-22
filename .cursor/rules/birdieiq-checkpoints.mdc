@@ -1,0 +1,16 @@
+---
+description: Checkpoint and journal conventions for docs and specs
+globs: docs/**/*
+alwaysApply: false
+---
+
+# BirdieIQ documentation checkpoints
+
+When editing files under `docs/`:
+
+- Work checkpoints in order (CP-0 → CP-1 → …). See [docs/CONVENTIONS.md](docs/CONVENTIONS.md).
+- Each completed checkpoint gets a journal: `docs/journal/CP-XX.md` using `_TEMPLATE.md` task format (Recommendation / Why / Alternatives / Risks / Next action).
+- Update [docs/specs/00-INDEX.md](docs/specs/00-INDEX.md) and [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md) when a spec is completed.
+- Major technical choices go in [docs/DECISIONS.md](docs/DECISIONS.md) as ADRs.
+
+Do not mark a checkpoint complete without meeting exit criteria in the workplan.
