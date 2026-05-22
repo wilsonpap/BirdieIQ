@@ -16,16 +16,30 @@ AI golf coach MVP — analyze rounds, find scoring leaks, and generate practice 
 - **[Architecture spec](docs/specs/02-architecture.md)** — CP-2 (Vercel + FastAPI + Neon)
 - **[Journal template](docs/journal/_TEMPLATE.md)** — copy for each new checkpoint
 
-## Getting started
+## Get started
 
-**Current:** CP-0–2 complete → **next: CP-3** (data model). No app code until CP-5. See [project status](docs/PROJECT_STATUS.md).
-
-## Development
+### Clone the repo
 
 ```bash
 git clone https://github.com/wilsonpap/BirdieIQ.git
 cd BirdieIQ
 ```
+
+### Resume in Cursor (new chat)
+
+After opening this project, start a **new Agent chat** and paste:
+
+```text
+Resume BirdieIQ — read PROJECT_STATUS.md
+```
+
+That loads the current checkpoint, ADRs, and open items. To continue the next task:
+
+```text
+start CP-3
+```
+
+**Current progress:** CP-0–2 complete → **next: CP-3** (data model). No application code until CP-5. Details: [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
 ## License
 
