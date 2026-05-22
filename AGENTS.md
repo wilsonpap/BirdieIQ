@@ -18,7 +18,7 @@ Cursor rules in `.cursor/rules/` enforce this read order (`alwaysApply: true`).
 - **Data:** No 18Birdies API. CSV import + manual entry ([ADR-001](docs/DECISIONS.md)).
 - **MVP auth/billing:** None. Single seeded user via `BIRDIEIQ_DEFAULT_USER_ID` ([ADR-007](docs/DECISIONS.md)).
 - **Stack:** Next.js BFF (Vercel) + FastAPI analytics (Railway) + Postgres (Neon).
-- **Code:** Not scaffolded yet. Design checkpoints CP-0–2 done; **next is CP-3**.
+- **Code:** Not scaffolded yet. Design checkpoints CP-0–3 done; **next is CP-4**.
 
 ## Rules
 
@@ -35,6 +35,7 @@ Cursor rules in `.cursor/rules/` enforce this read order (`alwaysApply: true`).
 | User says | Agent does |
 |-----------|------------|
 | `start CP-3` | Data model: ERD, SQL migration, update `03-data-model.md`, journal CP-03 |
+| `start CP-4` | Metrics spec + fixtures |
 | `start CP-4` | Metrics spec + fixtures |
 | `start CP-5` | Rules engine + 20 rules |
 | `start CP-6` | Monorepo scaffold per architecture spec |

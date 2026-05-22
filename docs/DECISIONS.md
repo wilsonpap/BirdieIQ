@@ -69,7 +69,12 @@ Record one entry per major decision. Link to specs and journal checkpoints.
 ## ADR-004 — ORM / migrations
 
 **Status:** Open  
+**Checkpoint:** CP-3 (schema draft) → **decide at CP-6**  
+**Context:** CP-3 delivered ORM-agnostic SQL in `db/migrations/001_initial.sql` and [03-data-model.md](./specs/03-data-model.md). Either Drizzle or Prisma can target the same tables.
+
 **Decision:** TBD at CP-6 (Drizzle vs Prisma — document choice here).
+
+**Consequences until CP-6:** Do not apply migration in app repo; use raw SQL or `psql` for manual verification if needed.
 
 ---
 

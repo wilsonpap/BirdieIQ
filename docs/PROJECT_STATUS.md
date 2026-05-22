@@ -10,7 +10,7 @@
 
 ## Current state (one paragraph)
 
-BirdieIQ is a golf analytics MVP (AI coach from round data). **Design checkpoints CP-0 through CP-2 are complete.** CP-3 (data model) is **next**. There is **no application code yet** — only docs, ADRs, journals, and a CSV import example. **18Birdies has no API** — MVP uses CSV import + manual entry. **Clerk and Stripe are deferred** until after core MVP ([ADR-007](./DECISIONS.md)).
+BirdieIQ is a golf analytics MVP (AI coach from round data). **Design checkpoints CP-0 through CP-3 are complete.** CP-4 (metrics engine spec) is **next**. There is **no application code yet** — docs, ADRs, journals, ERD, SQL migration draft, and CSV import example. **18Birdies has no API** — MVP uses CSV import + manual entry. **Clerk and Stripe are deferred** until after core MVP ([ADR-007](./DECISIONS.md)).
 
 ---
 
@@ -21,8 +21,8 @@ BirdieIQ is a golf analytics MVP (AI coach from round data). **Design checkpoint
 | CP-0 | Doc setup | ✅ Complete | [CP-00](journal/CP-00.md) |
 | CP-1 | Data access feasibility | ✅ Complete | [CP-01](journal/CP-01.md) |
 | CP-2 | MVP architecture | ✅ Complete | [CP-02](journal/CP-02.md) |
-| **CP-3** | **Data model (ERD + SQL)** | **⏭ Next** | — |
-| CP-4 | Metrics engine spec | ⬜ Not started | — |
+| CP-3 | Data model (ERD + SQL) | ✅ Complete | [CP-03](journal/CP-03.md) |
+| **CP-4** | **Metrics engine spec** | **⏭ Next** | — |
 | CP-5 | Rules engine spec (20 rules) | ⬜ Not started | — |
 | CP-6 | Monorepo scaffold | ⬜ Blocked until CP-3–5 | — |
 | CP-7–12 | 8-week build | ⬜ Not started | — |
@@ -85,10 +85,10 @@ From [CP-01 journal](journal/CP-01.md) — **not blocking CP-3**:
 ## How to resume development
 
 1. Read this file.
-2. Say or run: **“start CP-3”** (data model).
-3. Deliverables: `docs/specs/03-data-model.md`, `docs/diagrams/erd.mmd`, `db/migrations/001_initial.sql`.
-4. Journal: copy `docs/journal/_TEMPLATE.md` → `docs/journal/CP-03.md`.
-5. Do **not** scaffold app code until CP-3, CP-4, CP-5 exit criteria pass ([CONVENTIONS.md](CONVENTIONS.md)).
+2. Say or run: **“start CP-4”** (metrics engine spec).
+3. Deliverables: `docs/specs/04-metrics-engine.md`, fixtures, OpenAPI stub.
+4. Journal: copy `docs/journal/_TEMPLATE.md` → `docs/journal/CP-04.md`.
+5. Do **not** scaffold app code until CP-4, CP-5 exit criteria pass ([CONVENTIONS.md](CONVENTIONS.md)).
 
 ---
 

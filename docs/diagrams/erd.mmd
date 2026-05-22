@@ -1,0 +1,142 @@
+%% BirdieIQ — Entity Relationship Diagram (CP-3)
+%% Render in GitHub, Mermaid Live, or VS Code Mermaid preview
+
+erDiagram
+  users ||--o{ rounds : owns
+  users ||--o{ import_batches : uploads
+  users ||--o{ metrics_jobs : enqueues
+  users ||--o{ trend_snapshots : has
+  users ||--o{ insights : receives
+  users ||--o{ practice_plans : has
+
+  import_batches ||--o{ rounds : creates
+  rounds ||--|{ holes : contains
+  holes ||--o{ shots : tracks
+
+  insights ||--o| practice_plans : may_spawn
+  practice_plans ||--|{ practice_plan_items : contains
+
+  users {
+    uuid id PK
+    text clerk_id UK "nullable post-MVP"
+    text email "nullable"
+    text display_name
+    text subscription_status "nullable post-MVP"
+    timestamptz created_at
+    timestamptz updated_at
+  }
+
+  import_batches {
+    uuid id PK
+    uuid user_id FK
+    text filename
+    text source_format
+    text status
+    int rows_total
+    int rounds_created
+    text error_message
+    timestamptz created_at
+    timestamptz completed_at
+  }
+
+  rounds {
+    uuid id PK
+    uuid user_id FK
+    uuid import_batch_id FK "nullable"
+    text external_round_id "CSV round_id dedup"
+    date played_at
+    text course_name
+    text tee_name
+    smallint round_type "9 or 18"
+    smallint total_score "nullable computed"
+    text source "csv manual api"
+    jsonb raw_payload "Phase 2 upstream"
+    text notes
+    timestamptz created_at
+    timestamptz updated_at
+  }
+
+  holes {
+    uuid id PK
+    uuid round_id FK
+    uuid user_id FK "denormalized tenant"
+    smallint hole_number "1-18"
+    smallint par
+    smallint score "nullable picked up"
+    smallint putts
+    text fairway_hit "Y N or NA"
+    boolean gir
+    smallint penalty_strokes
+    text notes
+    timestamptz created_at
+    timestamptz updated_at
+  }
+
+  shots {
+    uuid id PK
+    uuid hole_id FK
+    uuid user_id FK
+    smallint shot_number
+    text club
+    text lie
+    int distance_yards
+    text result
+    timestamptz created_at
+  }
+
+  metrics_jobs {
+    uuid id PK
+    uuid user_id FK
+    text status
+    text trigger
+    text error
+    timestamptz created_at
+    timestamptz started_at
+    timestamptz completed_at
+  }
+
+  trend_snapshots {
+    uuid id PK
+    uuid user_id FK
+    text metric_key
+    text window_label
+    numeric value_numeric
+    jsonb value_json
+    date as_of_date
+    timestamptz computed_at
+  }
+
+  insights {
+    uuid id PK
+    uuid user_id FK
+    text rule_id
+    text title
+    text body
+    smallint priority
+    text status
+    timestamptz fired_at
+    timestamptz cooldown_until
+    jsonb context
+  }
+
+  practice_plans {
+    uuid id PK
+    uuid user_id FK
+    uuid source_insight_id FK "nullable"
+    text title
+    text status
+    timestamptz created_at
+    timestamptz completed_at
+  }
+
+  practice_plan_items {
+    uuid id PK
+    uuid practice_plan_id FK
+    smallint sort_order
+    text drill_template_id
+    text title
+    text description
+    smallint duration_minutes
+    boolean is_completed
+    timestamptz created_at
+  }
